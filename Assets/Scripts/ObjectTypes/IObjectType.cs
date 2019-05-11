@@ -6,6 +6,6 @@
         /// Получить тип элемента
         /// </summary>
         /// <returns>Тип</returns>
-        TypeElement GetObjectType();
+        ETypeElement GetObjectType();
     }
 }

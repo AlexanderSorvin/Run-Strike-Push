@@ -5,7 +5,7 @@ namespace game
 {
 
     [CreateAssetMenu(fileName = "Level Materials", menuName = "Scriptable Object/Level Materials")]
-    public class LevelMaterials : ScriptableObject
+    public class LevelMaterials : ScriptableObject, ILevelObjectMaterials, ILevelZoneMaterials
     {
         /// <summary>
         /// Первый материал, который используется в игре
@@ -39,7 +39,7 @@ namespace game
         /// <param name="numberZone">Номер зоны, где находится объект</param>
         /// <param name="typeMaterial">Тип материала, который требуется инициализировать</param>
         /// <returns></returns>
-        public Material GetMaterial(int numberZone, TypeElement typeMaterial)
+        public Material GetMaterial(int numberZone, ETypeElement typeMaterial)
         {
             return materials[(numberZone + (int)typeMaterial) % 2];
         }

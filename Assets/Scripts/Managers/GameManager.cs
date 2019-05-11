@@ -43,12 +43,28 @@ namespace game
         protected int numberCurrentLevelMaterial = 0;
 
         /// <summary>
-        /// Получить текущие материалы данного уровеня
+        /// Получить текущие материалы данного уровня
         /// </summary>
         /// <returns>Материалы уровня</returns>
         public LevelMaterials GetCurrentLevelMaterials()
         {
             return levelMaterials[numberCurrentLevelMaterial];
+        }
+
+        /// <summary>
+        /// Базовая скорость на уровнях
+        /// </summary>
+        [SerializeField] private float levelSpeed;
+
+        /// <summary>
+        /// Метод получения скорости на уровне
+        /// </summary>
+        public float LevelSpeed
+        {
+            get
+            {
+                return levelSpeed;
+            }
         }
 
         private void Awake()
@@ -75,7 +91,7 @@ namespace game
         /// </summary>
         public void LoadLevel()
         {
-            SceneManager.LoadScene(CurrentLevel - 1);
+            SceneManager.LoadScene((CurrentLevel - 1) % SceneManager.sceneCountInBuildSettings);
         }
 
         /// <summary>

@@ -6,6 +6,8 @@ namespace game
 {
     public class Zone : MonoBehaviour, IZone
     {
+        [SerializeField] protected new Renderer renderer;
+
         /// <summary>
         /// Определить или задать номер зоны
         /// </summary>
@@ -13,7 +15,7 @@ namespace game
 
         private void Awake()
         {
-            //GameManager.Instance.Get
+            renderer.material = GameManager.Instance.GetCurrentLevelMaterials().GetMaterialZone();
         }
     }
 }
