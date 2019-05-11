@@ -15,6 +15,10 @@ namespace game
         /// Второй материал, который используется в игре
         /// </summary>
         [SerializeField] protected Material material2;
+        /// <summary>
+        /// Материал зоны
+        /// </summary>
+        [SerializeField] protected Material materialZone;
 
         /// <summary>
         /// Массив из полученных материалов
@@ -49,6 +53,15 @@ namespace game
         public Material SwapMaterial(Material currentMaterial)
         {
             return (currentMaterial == material1) ? material2 : material1;
+        }
+
+        /// <summary>
+        /// Получить материал зоны
+        /// </summary>
+        /// <returns></returns>
+        public Material GetMaterialZone()
+        {
+            return materialZone;
         }
     }
 

@@ -2,14 +2,14 @@
 
 namespace game
 {
-    public class MaterialObjectOptions
+    public class MaterialObjectOptions : IMaterialObjectOptions
     {
         protected Renderer renderer;
 
-        public MaterialObjectOptions(MonoBehaviour parent, TypeElement typeElement = TypeElement.HelpElement)
+        public MaterialObjectOptions(Renderer renderer, TypeElement typeElement = TypeElement.HelpElement, int numberStartZone = 0)
         {
-            renderer = parent.GetComponent<Renderer>();
-            renderer.material = GameManager.Instance.GetCurrentLevelMaterials().GetMaterial(0, typeElement);
+            this.renderer = renderer;
+            this.renderer.material = GameManager.Instance.GetCurrentLevelMaterials().GetMaterial(numberStartZone, typeElement);
         }
 
         public void SwapMaterial()

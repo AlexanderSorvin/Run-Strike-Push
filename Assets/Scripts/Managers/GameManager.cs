@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace game
 {
@@ -31,6 +33,7 @@ namespace game
             {
                 currentLevel = value;
                 numberCurrentLevelMaterial = Random.Range(0, levelMaterials.Length);
+                LoadLevel();
             }
         }
 
@@ -50,7 +53,37 @@ namespace game
 
         private void Awake()
         {
-            CurrentLevel = new HaskeyIntController("Level", 1);
+            var objs = FindObjectsOfType<GameManager>();
+            if (objs.Length > 1)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                DontDestroyOnLoad(gameObject);
+                CurrentLevel = new HaskeyIntController("Level", 1);
+            }
+        }
+
+        /// <summary>
+        /// Событие, происходящее при смерти персонажа
+        /// </summary>
+        public UnityEvent deathEvent;
+
+        /// <summary>
+        /// Запустить текущий уровень
+        /// </summary>
+        public void LoadLevel()
+        {
+            SceneManager.LoadScene(CurrentLevel - 1);
+        }
+
+        /// <summary>
+        /// Назначить следующий уровень
+        /// </summary>
+        public void ChangeNewLevel()
+        {
+            CurrentLevel.Set(CurrentLevel + 1);
         }
     }
 

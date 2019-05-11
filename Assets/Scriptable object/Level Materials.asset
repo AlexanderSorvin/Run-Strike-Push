@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material1: {fileID: 2100000, guid: 3058d8f7cdc5f99418365c0cf66b1f5c, type: 2}
   material2: {fileID: 2100000, guid: 03309d957758e18478526debdfc03ef6, type: 2}
+  materialZone: {fileID: 2100000, guid: 4b2aafd96a22d4e47987ec63735d6a53, type: 2}

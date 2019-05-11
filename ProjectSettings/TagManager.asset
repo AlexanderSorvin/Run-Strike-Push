@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Help Element
   - Dead Element
+  - GameManager
   layers:
   - Default
   - TransparentFX
