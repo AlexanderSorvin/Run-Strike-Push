@@ -25,7 +25,7 @@ namespace game
             if (collision.rigidbody?.GetComponent<IObjectType>()?
                 .GetObjectType() == ETypeElement.DeadElement)
             {
-                GameManager.Instance.deathEvent?.Invoke();
+                LevelManager.Instance.deathEvent?.Invoke();
             }
         }
     }

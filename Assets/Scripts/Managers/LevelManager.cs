@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace game
 {
@@ -13,6 +14,19 @@ namespace game
             {
                 gameZones[i].ZoneNumber = i;
             }
+        }
+
+        /// <summary>
+        /// Событие, происходящее при смерти персонажа
+        /// </summary>
+        public UnityEvent deathEvent;
+
+        /// <summary>
+        /// Запустить текущий уровень
+        /// </summary>
+        public void LoadLevel()
+        {
+            SceneManager.LoadScene((GameManager.Instance.CurrentLevel - 1) % SceneManager.sceneCountInBuildSettings);
         }
     }
 }

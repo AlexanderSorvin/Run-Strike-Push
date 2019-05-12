@@ -23,17 +23,16 @@ namespace game
         /// <summary>
         /// Текущий уровень
         /// </summary>
-        protected HaskeyIntController CurrentLevel
+        public HaskeyIntController CurrentLevel
         {
             get
             {
                 return currentLevel;
             }
-            set
+            protected set
             {
                 currentLevel = value;
                 numberCurrentLevelMaterial = Random.Range(0, levelMaterials.Length);
-                LoadLevel();
             }
         }
 
@@ -79,19 +78,6 @@ namespace game
                 DontDestroyOnLoad(gameObject);
                 CurrentLevel = new HaskeyIntController("Level", 1);
             }
-        }
-
-        /// <summary>
-        /// Событие, происходящее при смерти персонажа
-        /// </summary>
-        public UnityEvent deathEvent;
-
-        /// <summary>
-        /// Запустить текущий уровень
-        /// </summary>
-        public void LoadLevel()
-        {
-            SceneManager.LoadScene((CurrentLevel - 1) % SceneManager.sceneCountInBuildSettings);
         }
 
         /// <summary>
